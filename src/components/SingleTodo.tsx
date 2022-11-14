@@ -35,6 +35,8 @@ function SingleTodo({ todo, todos, setTodos }: Props) {
 
     setEdit(false);
   };
+  console.log('--- todo.isDone ---'); // [XXX] REMOVE BEFORE COMMITING
+  console.log(todo.isDone); // [XXX] REMOVE BEFORE COMMITING
 
   return (
     <form className="todos__single" onSubmit={(e) => handleEdit(e, todo.id)}>
@@ -48,7 +50,9 @@ function SingleTodo({ todo, todos, setTodos }: Props) {
         </div>
       ) : (
         <div>
-          <span>{todo.todo}</span>
+          <span style={todo.isDone ? { textDecoration: 'line-through' } : {}}>
+            {todo.todo}
+          </span>
         </div>
       )}
       <div>
